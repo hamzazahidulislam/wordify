@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static  %}
+    {%  include 'search-header.html'  %}
+
+    <!-- END section -->
+
+    <section class="site-section py-sm">
+        <div class="container">
+            <div class="row">
+
+                <!-- ------------- -->
+
+
+
+                {%  block content  %}
+                {% endblock %}
+
+
+
+
+                <!-- ------------------------------------------------------------------------------------------------------------------------- -->
+                <!-- END main-content -->
+
+                {% include 'search-sider-section.html'  %}
+                <!-- END sidebar -->
+
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html'  %}

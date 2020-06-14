@@ -1,0 +1,87 @@
+        <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+                <form action="" class="search-form" method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <span class="icon fa fa-search"></span>
+                        <input required=True name="search_keyword" type="text" class="form-control" id="s"
+                            placeholder="Type a keyword and hit enter">
+                    </div>
+                </form>
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+                <div class="bio text-center">
+                    {% for i in profile %}
+                    <img src="{{ i.photo.url }}" alt="Image Placeholder" class="img-fluid">
+
+                    <div class="bio-body">
+                        <h2>{{ i.full_name  }}</h2>
+                        <p>{{ i.body }}</p>
+                        <p><a href="" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+                        <p class="social">
+                            <a href="{{ i.fburl }}" target="blank" class=p-2><span class="fa fa-facebook"></span></a>
+                            <a href="{{i.twurl}}" target="blank" class="p-2"><span class="fa fa-twitter"></span></a>
+                            <a href="{{i.inurl}}" target="blank" class="p-2"><span class="fa fa-instagram"></span></a>
+                            <a href="{{i.yturl}}" target="blank" class="p-2"><span
+                                    class="fa fa-youtube-play"></span></a>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+                <h3 class="heading">Latest Posts</h3>
+                <div class="post-entry-sidebar">
+                    <ul>
+                        {% for i in latest_post %}
+                        <li>
+                            <a href="{% url 'blog-details' i.id %}">
+                                <img src="{{ i.photo.url }}"" alt=" Image placeholder" class="mr-4">
+                                <div class="text">
+                                    <h4>{{ i.title }}</h4>
+                                    <div class="post-meta">
+                                        <span class="mr-2">{{i.date}} </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor  %}
+                    </ul>
+                </div>
+            </div>
+            <!-- END sidebar-box -->
+
+            <div class="sidebar-box">
+                <h3 class="heading">Categories</h3>
+                {% for i in categories  %}
+                <ul class="categories">
+
+                    <li><a href="{% url 'category-list' i.id %}">{{ forloop.counter }}-{{i.name}}
+                            <span>({{i.post_set.count}})</span></a>
+                    </li>
+
+                </ul>
+                {% endfor %}
+            </div>
+            <!-- END sidebar-box -->
+
+            <div class="sidebar-box">
+                <h3 class="heading">Tags</h3>
+                <ul class="tags">
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Food</a></li>
+                    <li><a href="#">Lifestyle</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Freelancing</a></li>
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Food</a></li>
+                    <li><a href="#">Lifestyle</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Freelancing</a></li>
+                </ul>
+            </div>
+        </div>

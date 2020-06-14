@@ -1,0 +1,55 @@
+{% extends 'base_detail_post.html'  %}
+
+
+{%  block content %}
+<div class="col-md-12 col-lg-8 main-content">
+    <img src="{{ post.photo.url }}" alt="Image" class="img-fluid mb-5">
+    <div class="post-meta">
+        <span class="author mr-2"><img src="{{ post.author.profile.photo.url }}" alt="Colorlib" class="mr-2">
+            {{ post.author.profile.full_name }}</span>&bullet;
+        <span class="mr-2">{{post.date}} </span> &bullet;
+        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+    </div>
+    <h1 class="mb-4">{{  post.title  }}</h1>
+    <a class="category mb-5" href="#">{{ post.category  }}</a>
+
+    <div class="post-content-body">
+        <p>{{  post.body  }}</p>
+        >
+
+
+    </div>
+
+
+    <div class="pt-5">
+        <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a href="#">#manila</a>, <a href="#">#asia</a>
+        </p>
+    </div>
+
+
+
+</div>
+
+{% endblock %}
+{% block userprofile %}
+<div class="sidebar-box">
+    <div class="bio text-center">
+        <img src="{{ profile.photo.url }}" alt="Image Placeholder" class="img-fluid">
+        <div class="bio-body">
+            <h2>{{ profile.full_name  }}</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem
+                facilis
+                sunt repellendus
+                excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias
+                minus.</p>
+            <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+            <p class="social">
+                <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{%  extends 'search-base.html' %}
+{% block content %}
+{% if post %}
+<div class="col-md-6">
+    <h2 class="mb-4">Search List</h2>
+</div>
+</div>
+<div class="row blog-entries">
+    <div class="col-md-12 col-lg-8 main-content">
+
+        <div class="row">
+
+            {% for i in post %}
+            <div class="col-md-6">
+                <a href="{% url 'blog-details' i.id%}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                    <img src="{{ i.photo.url }}" alt="Image placeholder">
+                    <div class="blog-content-body">
+                        <div class="post-meta">
+                            <span class="author mr-2"><img src="{{ i.author.profile.photo.url }}" alt="Colorlib">
+                                {{ i.category }}</span>&bullet;
+                            <span class="mr-2">{{ i.date }} </span> &bullet;
+                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                        </div>
+                        <h2>{{ i.title }}</h2>
+                    </div>
+                </a>
+            </div>
+            {%  endfor  %}
+        </div>
+
+    </div>
+    {% else %}
+
+</div>
+<div class="row blog-entries">
+    <div class="col-md-12 col-lg-8 main-content">
+        <div class="alert alert-danger">
+            <h2 class="mb-4"> Sorry, we couldn't find any <span style="color: red;"> {{ search_key }}</span>
+                result
+                matching </h2>
+        </div>
+        <h3>Search Tips</h3>
+        <ul>
+            <li>Check your spelling and tray again</li>
+            <li>Try a similar but different search term</li>
+            <li>Keep your search term simple as our search facility works best shorter descriptions</li>
+            <li>Try looking within the departments shown below</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    {% endblock %}
