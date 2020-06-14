@@ -4,7 +4,7 @@
 1. Download Project  From This url :  `https://github.com/hamzazahidulislam/wordify `
 2. Go To Project Directory `cd wordify`
 3. Create a Virtual Environment `virtualenv env`
-4. Activate Virtual Environment `cd env\Scripts\activate`
+4. Activate Virtual Environment `env\Scripts\activate`
 5. Install Requirements Package `pip install -r requirements.txt`
 7. Finally Run The Project `python manage.py runserver`
 
